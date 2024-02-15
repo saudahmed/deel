@@ -1,30 +1,42 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { createTheme, ThemeProvider } from "@mui/material";
-import { grey, blue } from "@mui/material/colors";
+import { Route } from "react-router-dom";
+import { IonReactRouter } from "@ionic/react-router";
+import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: blue[500],
-    },
-    secondary: {
-      main: grey[500],
-    },
-  },
-});
+import Payslips from "./pages/payslips/Payslips";
+import PayslipDetail from "./pages/payslipDetail/PayslipDetail";
+
+/* Core CSS required for Ionic components to work properly */
+import "@ionic/react/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+import "@ionic/react/css/normalize.css";
+import "@ionic/react/css/structure.css";
+import "@ionic/react/css/typography.css";
+
+/* Optional CSS utils that can be commented out */
+import "@ionic/react/css/padding.css";
+import "@ionic/react/css/float-elements.css";
+import "@ionic/react/css/text-alignment.css";
+import "@ionic/react/css/text-transformation.css";
+import "@ionic/react/css/flex-utils.css";
+import "@ionic/react/css/display.css";
+
+setupIonicReact();
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <div>Hello world!</div>,
-    },
-  ]);
-
   return (
-    <ThemeProvider theme={theme}>
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route path="/">
+            <Payslips />
+          </Route>
+          <Route path="/detail">
+            <PayslipDetail />
+          </Route>
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
   );
 }
 
