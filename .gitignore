@@ -2,8 +2,14 @@
 
 # dependencies
 /node_modules
+.idea/
 /.pnp
 .pnp.js
+.vscode/
+*.map
+.DS_Store
+.sourcemaps
+dist/
 
 # testing
 /coverage
