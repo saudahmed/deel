@@ -10,13 +10,20 @@ import {
   IonButton,
   IonButtons,
   IonBackButton,
+  IonToast,
+  IonIcon,
 } from "@ionic/react";
+import { download } from "ionicons/icons";
+import { useDownloadFile } from "../../hooks/useDownloadFile";
 import { useParams } from "react-router-dom";
 import { initialPayslips } from "../../constants/data";
 import { formatDate } from "../../utils";
 
 const PayslipDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const { isFailure, isSuccess, saveFile, setIsFailure, setIsSuccess } =
+    useDownloadFile();
+
   const payslip = initialPayslips.find((p) => p.id === id);
   if (!payslip) {
     return null;
@@ -57,10 +64,35 @@ const PayslipDetail: React.FC = () => {
               {formatDate(payslip.toDate)}
             </IonLabel>
           </IonItem>
-          <IonButton expand="full" onClick={() => {}}>
-            Download
-          </IonButton>
         </IonList>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <IonButton
+            onClick={() => {
+              saveFile(payslip.file);
+            }}
+          >
+            Download
+            <IonIcon slot="end" icon={download}></IonIcon>
+          </IonButton>
+        </div>
+        <IonToast
+          isOpen={isSuccess}
+          message="Payslip downloaded successfully!"
+          onDidDismiss={() => setIsSuccess(false)}
+          duration={3000}
+        ></IonToast>
+        <IonToast
+          isOpen={isFailure}
+          message="Failed to download payslip!"
+          onDidDismiss={() => setIsFailure(false)}
+          duration={3000}
+        ></IonToast>
       </IonContent>
     </IonPage>
   );
