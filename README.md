@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+# Build Your First Ionic App: Photo Gallery (Ionic React and Capacitor)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is created as a React app to which later [Capacitor](https://capacitor.ionicframework.com) (native app runtime) is added followed by [Ionic React](https://ionicframework.com/docs/react).
 
-## Available Scripts
+## How It Works
 
-In the project directory, you can run:
+After the user says all its payslips, user can select a payslip to see its detail and later can download it to Files app whether on iOS or Android.
 
-### `yarn start`
+## Feature Overview
+* App framework: [React](https://reactjs.org/)
+* UI components: [Ionic Framework](https://ionicframework.com/docs/components)
+* Native runtime: [Capacitor](https://capacitor.ionicframework.com)
+  * Save file to the filesystem: [Filesystem API](https://capacitor.ionicframework.com/docs/apis/filesystem)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project Structure
+* Payslips page showing all the payslips and separated in year section.
+* PayslipsDetail page to show detail of the payslip.
+* Support to include pages in future using react router.
+* Keep the components separate
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## How to Run
 
-### `yarn test`
+if you have not setup your system for iOS and Android development, please See [here](https://capacitorjs.com/docs/getting-started/environment-setup). I used yarn for dependencies and script generation. After setting it up in your terminal:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+0) Install Ionic if needed: `npm install -g @ionic/cli`.
+1) Clone this repository.
+2) use Nodejs 18.
+2) In a terminal, change directory into the repo: `cd deel`.
+3) Install all packages: `yarn install`.
+4) Run on the web: `npm run start`.
+5) Run on iOS `yarn run-ios`.
+6) Run on Android `yarn run-android`.
 
-### `yarn build`
+Please setup your simulators for iOS and Android if you get a prompt while running.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Some Extra
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Project can be used as a template to also use Material UI, Storybook and testing-library/react.
