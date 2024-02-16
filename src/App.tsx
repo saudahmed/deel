@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import { IonReactRouter } from "@ionic/react-router";
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 
@@ -21,6 +21,9 @@ import "@ionic/react/css/text-transformation.css";
 import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
 
+/* Theme variables */
+import "./theme/variables.css";
+
 setupIonicReact();
 
 function App() {
@@ -28,12 +31,13 @@ function App() {
     <IonApp>
       <IonReactRouter>
         <IonRouterOutlet>
-          <Route path="/">
+          <Route path="/payslips" exact>
             <Payslips />
           </Route>
-          <Route path="/detail">
+          <Route path="/payslips/:id" exact>
             <PayslipDetail />
           </Route>
+          <Redirect from="/" to="/payslips" exact />
         </IonRouterOutlet>
       </IonReactRouter>
     </IonApp>

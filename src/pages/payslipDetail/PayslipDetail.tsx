@@ -5,22 +5,19 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
+import { useParams } from "react-router-dom";
 
 const PayslipDetail: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Payslip Detail</IonTitle>
+          <IonTitle>Payslip</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Payslip Detail</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-      </IonContent>
+      <IonContent fullscreen></IonContent>
     </IonPage>
   );
 };
